@@ -35,4 +35,4 @@ test_script:
   - xmr-stak.exe --help --noUAC
 
 artifacts:
-- path: build\Release\xmr-stak-win64.zip
+- path: build\xmr-stak-win64.zip
