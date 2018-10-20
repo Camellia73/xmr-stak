@@ -220,22 +220,28 @@ __global__ void cryptonight_extra_gpu_final( int threads, uint64_t target, uint3
 	}
 	cn_keccakf2( (uint64_t *) state );
 
-	switch ( ( (uint8_t *) state )[0] & 0x03 )
+	if (ALGO == cryptonight_dark)
 	{
-	case 0:
 		cn_blake( (const uint8_t *) state, 200, (uint8_t *) hash );
-		break;
-	case 1:
-		cn_groestl( (const BitSequence *) state, 200, (BitSequence *) hash );
-		break;
-	case 2:
-		cn_jh( (const BitSequence *) state, 200, (BitSequence *) hash );
-		break;
-	case 3:
-		cn_skein( (const BitSequence *) state, 200, (BitSequence *) hash );
-		break;
-	default:
-		break;
+	}
+	else {
+		switch ( ( (uint8_t *) state )[0] & 0x03 )
+		{
+		case 0:
+			cn_blake( (const uint8_t *) state, 200, (uint8_t *) hash );
+			break;
+		case 1:
+			cn_groestl( (const BitSequence *) state, 200, (BitSequence *) hash );
+			break;
+		case 2:
+			cn_jh( (const BitSequence *) state, 200, (BitSequence *) hash );
+			break;
+		case 3:
+			cn_skein( (const BitSequence *) state, 200, (BitSequence *) hash );
+			break;
+		default:
+			break;
+		}
 	}
 
 	// Note that comparison is equivalent to subtraction - we can't just compare 8 32-bit values
