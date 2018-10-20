@@ -840,9 +840,9 @@ void cryptonight_core_gpu_hash(nvid_ctx* ctx, uint32_t nonce)
 void cryptonight_core_cpu_hash(nvid_ctx* ctx, xmrstak_algo miner_algo, uint32_t startNonce)
 {
 	typedef void (*cuda_hash_fn)(nvid_ctx* ctx, uint32_t nonce);
-	
+
 	if(miner_algo == invalid_algo) return;
-	
+
 	static const cuda_hash_fn func_table[] = {
 		cryptonight_core_gpu_hash<CRYPTONIGHT_ITER, CRYPTONIGHT_MASK, CRYPTONIGHT_MEMORY/4, cryptonight, 0>,
 		cryptonight_core_gpu_hash<CRYPTONIGHT_ITER, CRYPTONIGHT_MASK, CRYPTONIGHT_MEMORY/4, cryptonight, 1>,
@@ -876,6 +876,9 @@ void cryptonight_core_cpu_hash(nvid_ctx* ctx, xmrstak_algo miner_algo, uint32_t 
 
 		cryptonight_core_gpu_hash<CRYPTONIGHT_ITER, CRYPTONIGHT_MASK, CRYPTONIGHT_MEMORY/4, cryptonight_monero_v8, 0>,
 		cryptonight_core_gpu_hash<CRYPTONIGHT_ITER, CRYPTONIGHT_MASK, CRYPTONIGHT_MEMORY/4, cryptonight_monero_v8, 1>
+
+    cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_dark, 0>,
+		cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_dark, 1>,
 	};
 
 	std::bitset<1> digit;

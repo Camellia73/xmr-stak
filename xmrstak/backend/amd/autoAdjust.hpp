@@ -149,6 +149,10 @@ private:
 			if(::jconf::inst()->GetCurrentCoinSelection().GetDescription(1).GetMiningAlgo() == cryptonight_lite)
 				maxThreads *= 2u;
 
+			// increase all intensity limits by four for cryonote
+			else if(::jconf::inst()->GetCurrentCoinSelection().GetDescription(1).GetMiningAlgo() == cryptonight_dark)
+				maxThreads *= 4u;
+
 			// keep 128MiB memory free (value is randomly chosen)
 			size_t availableMem = ctx.freeMem - minFreeMem;
 			// 224byte extra memory is used per thread for meta data

@@ -493,32 +493,38 @@ minethd::cn_hash_fun minethd::func_multi_selector(bool bHaveAes, bool bNoPrefetc
 	case cryptonight_lite:
 		algv = 1;
 		break;
+	case cryptonight_dark:
+		algv = 3;
+		break;
 	case cryptonight_monero:
 		algv = 0;
 		break;
 	case cryptonight_heavy:
-		algv = 3;
-		break;
-	case cryptonight_aeon:
 		algv = 4;
 		break;
-	case cryptonight_ipbc:
+	case cryptonight_aeon:
 		algv = 5;
 		break;
-	case cryptonight_stellite:
+	case cryptonight_cryonote:
 		algv = 6;
 		break;
-	case cryptonight_masari:
+	case cryptonight_ipbc:
 		algv = 7;
 		break;
-	case cryptonight_haven:
+	case cryptonight_stellite:
 		algv = 8;
 		break;
-	case cryptonight_bittube2:
+	case cryptonight_masari:
 		algv = 9;
 		break;
-	case cryptonight_monero_v8:
+	case cryptonight_haven:
 		algv = 10;
+		break;
+	case cryptonight_bittube2:
+		algv = 11;
+		break;
+	case cryptonight_monero_v8:
+		algv = 11;
 		break;
 	default:
 		algv = 2;
@@ -541,6 +547,11 @@ minethd::cn_hash_fun minethd::func_multi_selector(bool bHaveAes, bool bNoPrefetc
 		Cryptonight_hash<N>::template hash<cryptonight, false, true>,
 		Cryptonight_hash<N>::template hash<cryptonight, true, true>,
 
+		Cryptonight_hash<N>::template hash<cryptonight_dark, false, false>,
+		Cryptonight_hash<N>::template hash<cryptonight_dark, true, false>,
+		Cryptonight_hash<N>::template hash<cryptonight_dark, false, true>,
+		Cryptonight_hash<N>::template hash<cryptonight_dark, true, true>,
+
 		Cryptonight_hash<N>::template hash<cryptonight_heavy, false, false>,
 		Cryptonight_hash<N>::template hash<cryptonight_heavy, true, false>,
 		Cryptonight_hash<N>::template hash<cryptonight_heavy, false, true>,
@@ -550,6 +561,11 @@ minethd::cn_hash_fun minethd::func_multi_selector(bool bHaveAes, bool bNoPrefetc
 		Cryptonight_hash<N>::template hash<cryptonight_aeon, true, false>,
 		Cryptonight_hash<N>::template hash<cryptonight_aeon, false, true>,
 		Cryptonight_hash<N>::template hash<cryptonight_aeon, true, true>,
+
+		Cryptonight_hash<N>::template hash<cryptonight_cryonote, false, false>,
+		Cryptonight_hash<N>::template hash<cryptonight_cryonote, true, false>,
+		Cryptonight_hash<N>::template hash<cryptonight_cryonote, false, true>,
+		Cryptonight_hash<N>::template hash<cryptonight_cryonote, true, true>,
 
 		Cryptonight_hash<N>::template hash<cryptonight_ipbc, false, false>,
 		Cryptonight_hash<N>::template hash<cryptonight_ipbc, true, false>,
@@ -618,7 +634,7 @@ minethd::cn_hash_fun minethd::func_multi_selector(bool bHaveAes, bool bNoPrefetc
 				printer::inst()->print_msg(L1, "Assembler '%s' unknown, fallback to non asm version of cryptonight_v8", selected_asm.c_str());
 		}
 	}
-	
+
 	return selected_function;
 }
 
