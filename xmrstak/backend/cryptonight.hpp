@@ -33,7 +33,7 @@ constexpr uint32_t CRYPTONIGHT_LITE_ITER = 0x40000;
 // define cryonote settings
 constexpr size_t CRYPTONIGHT_DARK_MEMORY = 0.5 * 1024 * 1024;
 constexpr uint32_t CRYPTONIGHT_DARK_MASK = 0x7FFF0;
-constexpr uint32_t CRYPTONIGHT_DARK_ITER = 0x40000;
+constexpr uint32_t CRYPTONIGHT_DARK_ITER = 0x20000;
 
 constexpr size_t CRYPTONIGHT_HEAVY_MEMORY = 4 * 1024 * 1024;
 constexpr uint32_t CRYPTONIGHT_HEAVY_MASK = 0x3FFFF0;
