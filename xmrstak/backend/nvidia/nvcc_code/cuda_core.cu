@@ -878,7 +878,10 @@ void cryptonight_core_cpu_hash(nvid_ctx* ctx, xmrstak_algo miner_algo, uint32_t 
 		cryptonight_core_gpu_hash<CRYPTONIGHT_ITER, CRYPTONIGHT_MASK, CRYPTONIGHT_MEMORY/4, cryptonight_monero_v8, 1>,
 
 		cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_dark, 0>,
-		cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_dark, 1>
+		cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_dark, 1>,
+
+		cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_cryonote, 0>,
+		cryptonight_core_gpu_hash<CRYPTONIGHT_DARK_ITER, CRYPTONIGHT_DARK_MASK, CRYPTONIGHT_DARK_MEMORY/4, cryptonight_cryonote, 1>
 	};
 
 	std::bitset<1> digit;
