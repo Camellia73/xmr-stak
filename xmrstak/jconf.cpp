@@ -110,7 +110,7 @@ xmrstak::coin_selection coins[] = {
 	{ "ryo",                 {cryptonight_heavy, cryptonight_heavy, 0u},          {cryptonight_heavy, cryptonight_heavy, 0u},   nullptr },
 	{ "stellite",            {cryptonight_monero_v8, cryptonight_stellite, 255u}, {cryptonight_monero_v8, cryptonight_monero_v8, 0u}, nullptr },
 	{ "turtlecoin",          {cryptonight_aeon, cryptonight_aeon, 0u},            {cryptonight_aeon, cryptonight_aeon, 0u},     nullptr },
-	{ "cryonote",            {cryptonight_dark, cryptonight_dark, 255u},          {cryptonight_dark, cryptonight_dark, 0u},     nullptr }
+	{ "blackrose",            {cryptonight_dark, cryptonight_dark, 255u},          {cryptonight_dark, cryptonight_dark, 0u},     nullptr }
 };
 
 constexpr size_t coin_algo_size = (sizeof(coins)/sizeof(coins[0]));
